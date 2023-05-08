@@ -1,8 +1,10 @@
 # whereas .env is used for app configuration, we should use .flaskenv for Flask CLI config commands.
 # the example given was:
 
-
-
+FLASK_APP=flask_tutorial/flask_hello_world.py
+FLASK_ENV=development
+FLASK_DEBUG=1
+FLASK_RUN_PORT = 5003
 
 
 # other CLI options for the .flaskenv:
