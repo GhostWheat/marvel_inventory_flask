@@ -1,6 +1,6 @@
 # whereas .env is used for app configuration, we should use .flaskenv for Flask CLI config commands.
 # the example given was:
-
+SECRET_KEY='cd09e0e0d8e7ec7f6e848e11cf7f4e63'
 FLASK_APP=flask_tutorial/flask_hello_world.py
 FLASK_ENV=development
 FLASK_DEBUG=1
