@@ -9,6 +9,7 @@ dnspython==2.3.0
 EditorConfig==0.12.3
 email-validator==2.0.0.post2
 Flask==2.2.3
+Flask-Cors==3.0.10
 Flask-Login==0.6.2
 flask-marshmallow==0.15.0
 Flask-Migrate==4.0.4
@@ -26,6 +27,7 @@ livereload==2.6.3
 Mako==1.2.4
 MarkupSafe==2.1.2
 marshmallow==3.19.0
+marshmallow-sqlalchemy==0.29.0
 packaging==23.1
 pathspec==0.11.1
 psycopg2==2.9.6
