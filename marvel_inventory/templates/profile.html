@@ -1,4 +1,4 @@
-
+{% extends 'base.html' %}
 {% block content %}
 
 <!-- Flask flash message to user -->
@@ -23,7 +23,7 @@
         <div class="row">
             <aside class="col-12 col-md-6">
                 <h2>Add your Hero!</h2>
-                {% include 'hero_form.html' %}
+                {% include './partials/hero_form.html' %}
             </aside>
         </div>
     </main>

@@ -3,7 +3,8 @@ from flask_login import login_required, current_user
 from marvel_inventory.forms import HeroForm
 from marvel_inventory.models import Hero, db
 
-site = Blueprint('site', __name__, template_folder='site_templates')
+site = Blueprint('site', __name__, template_folder='site_templates'
+                 )
 
 
 
