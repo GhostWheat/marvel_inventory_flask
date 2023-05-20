@@ -4,54 +4,61 @@
 <!-- Flask flash message to user -->
 
 {% with messages = get_flashed_messages(with_categories = true) %}
-    {% if messages %}
-        {% for cat, msg in messages %}
-            {% if cat == 'auth_success' %}
-                <div class="container">
-                    {{ msg }}
-                    <button type="button" class="close" data-dismiss="alert"
-                        onclick="this.parentElement.style.display='none'">&times;</button>
-                </div>
-            {% endif %}
-        {% endfor %}
-    {% endif %}
+{% if messages %}
+{% for cat, msg in messages %}
+{% if cat == 'auth_success' %}
+<div class="container">
+    {{ msg }}
+    <button type="button" class="close" data-dismiss="alert"
+        onclick="this.parentElement.style.display='none'">&times;</button>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
 {% endwith %}
 
-<header class="hero-section">
-    <h3 class="header-text">Welcome to Marvelicious, {{ current_user.username }}</h3>
-    <main class="container hero_form">
-        <div class="row">
-            <aside class="col-12 col-md-12">
-                <h2>Add your Hero!</h2>
-                {% include './partials/hero_form.html' %}
-            </aside>
-        </div>
-    </main>
-</header>
-
 <div class="container">
-
-    <div class="container">
-        <h3>Here are your profile details!</h3>
-        <li class="list-group-item">Email: {{ current_user.email }}</li>
-        <li class="list-group-item">Token {{ current_user.token }}</li>
-        <div class="row mt-4">
-            {% for hero in heroes %}
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <img height="auto" width="auto" class="card-img-top" src=""
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ hero.descriptor }} </h5>
-                        <p class="card-text">{{ hero.hero_data }} </p>
-                       <br/>
+    <div class="row">
+        <div class="col justify-content-center d-flex">
+            <header class="hero-section w-75">
+                <h3 class="header-text">Welcome to Marvelicious, {{ current_user.email }}!</h3>
+                <main class="container hero_form">
+                    <div class="row">
+                        <aside class="col-12 col-md-12">
+                            <h2>Add a Hero</h2>
+                            {% include './partials/hero_form.html' %}
+                        </aside>
                     </div>
-                </div>
-            </div>
-            {% endfor %}
+                </main>
+            </header>
         </div>
     </div>
+</div>
 
+<div class="container mt-4">
+    <div class="row mt-4">
+        {% for hero in heroes %}
+
+        <div class="col-auto">
+            <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                <img height="auto" width="auto" class="card-img-top" src="" alt="MARVEL">
+                <div class="card-header">{{ hero.hero_name }} </div>
+                <div class="card-body text-start">
+                    {# <h4 class="card-title">{{ hero.hero_name }} </h4> #}
+                    <h5 class="card-text text-center">{{ hero.description }} </h5>
+                    <p class="card-text">Power[s]:&ensp;{{ hero.super_power }} </p>
+                    <p class="card-text">Comics Appeared In:&ensp;{{ hero.comics_appeared_in }} </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container mt-4">
+    <h3>Here are your profile details!</h3>
+    <li class="list-group-item">Email: {{ current_user.email }}</li>
+    <li class="list-group-item">Token {{ current_user.token }}</li>
 </div>
 
 {% endblock content %}

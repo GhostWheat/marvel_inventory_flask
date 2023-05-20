@@ -72,7 +72,7 @@ class Hero(db.Model):
     def __init__(self, hero_name, description, comics_appeared_in, super_power, user_token):
         self.id = self.set_id()
         self.hero_name = hero_name
-        self.hero_data = description
+        self.description = description
         self.comics_appeared_in = comics_appeared_in
         self.super_power = super_power
         self.user_token = user_token
@@ -81,7 +81,7 @@ class Hero(db.Model):
         return str(uuid.uuid4())
 
     def __repr__(self):
-        return f"{self.id} {self.descriptor} has been added to the database!"
+        return f"{self.id} {self.hero_name} has been added to the database!"
     
 class HeroSchema(ma.Schema):
     class Meta:

@@ -16,7 +16,7 @@ def create_hero(our_user):
     id = request.json['id']
     hero_name = request.json['hero_name']
     description = request.json['description']
-    comics_appeared_in = request.json['comice_appeared_in']
+    comics_appeared_in = request.json['comics_appeared_in']
     super_power = request.json['super_power']
     date_created = 0
     user_token = our_user.token

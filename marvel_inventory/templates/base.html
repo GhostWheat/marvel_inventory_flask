@@ -26,16 +26,16 @@
 <body>
     {% include './partials/navbar.html' %}
     <!-- this section block the child-templates can override -->
-    <div class="container mt-5">
-        <div class="row ">
-            <div class="col justify-content-center d-flex mt-5">
-                <div class="border alignjustify-content-center text-center">
+    {# <div class="container mt-5"> #}
+        {# <div class="row "> #}
+            <div class="justify-content-center d-flex">
+                <div class="border text-center mt-5 p-3">
                     {% block content %}
                     {% endblock content %}
                 </div>
             </div>
-        </div>
-    </div>
+        {# </div> #}
+    {# </div> #}
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
