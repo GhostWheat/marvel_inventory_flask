@@ -62,14 +62,19 @@ class User(db.Model, UserMixin):
 
 class Hero(db.Model):
     id = db.Column(db.String, primary_key = True)
-    descriptor = db.Column(db.String(80))
-    hero_data = db.Column(db.String(5000))
+    hero_name = db.Column(db.String(80))
+    description = db.Column(db.String(1000))
+    comics_appeared_in = db.Column(db.Numeric(precision=5, scale=0))
+    super_power = db.Column(db.String(1000))
+    date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable=False)
 
-    def __init__(self, descriptor, puzz_data, user_token):
+    def __init__(self, hero_name, description, comics_appeared_in, super_power, user_token):
         self.id = self.set_id()
-        self.descriptor = descriptor
-        self.hero_data = puzz_data        
+        self.hero_name = hero_name
+        self.hero_data = description
+        self.comics_appeared_in = comics_appeared_in
+        self.super_power = super_power
         self.user_token = user_token
 
     def set_id(self):

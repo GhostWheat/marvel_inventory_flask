@@ -20,11 +20,16 @@ def profile():
 
     try:
         if request.method == 'POST' and my_hero.validate_on_submit():
-            descriptor = my_hero.descriptor.data
-            hero_data = my_hero.hero_data.data
+            id = my_hero.id.data
+            hero_name = my_hero.hero_name.data
+            description = my_hero.description.data
+            comics_appeared_in = my_hero.comics_appeared_in
+            super_power = my_hero.super_power
+            date_created = my_hero.date_created
             user_token = current_user.token
 
-            hero = Hero( descriptor, hero_data, user_token)
+            hero = Hero(id, hero_name, description, comics_appeared_in,\
+                        super_power, date_created, user_token)
             # print(hero)
             db.session.add(hero)
             db.session.commit()

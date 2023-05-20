@@ -10,7 +10,9 @@ class UserLoginForm(FlaskForm):
     submit_button = SubmitField()
 
 class HeroForm(FlaskForm):
-    descriptor = StringField('descriptor')
-    hero_data = StringField('hero_data')
-    submit_button = SubmitField()
+    hero_name = StringField('Name')
+    description = StringField('Description')
+    comics_appeared_in = DecimalField('Number of Comics', places=0)
+    super_power = StringField('Super Power')
+    submit_button = SubmitField('Add This Hero!')
     
