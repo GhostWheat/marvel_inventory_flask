@@ -40,12 +40,12 @@
         {% for hero in heroes %}
 
         <div class="col-auto">
-            <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+            <div class="card text-white bg-dark mb-3">
                 <img height="auto" width="auto" class="card-img-top" src="" alt="MARVEL">
-                <div class="card-header">{{ hero.hero_name }} </div>
+                <div class="card-header"><b class="fs-5">{{ hero.hero_name }}</b></div>
                 <div class="card-body text-start">
                     {# <h4 class="card-title">{{ hero.hero_name }} </h4> #}
-                    <h5 class="card-text text-center">{{ hero.description }} </h5>
+                    <p class="card-text text-center">{{ hero.description }} </p>
                     <p class="card-text">Power[s]:&ensp;{{ hero.super_power }} </p>
                     <p class="card-text">Comics Appeared In:&ensp;{{ hero.comics_appeared_in }} </p>
                 </div>
