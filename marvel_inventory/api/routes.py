@@ -19,11 +19,11 @@ def create_hero(our_user):
     super_power = request.json['super_power']
     date_created = 0
     user_token = our_user.token
-    customer_id = request.json['customer_id'] #IS THIS THE SAME THING AS USER_TOKEN??
+
 
     print(f"User Token: {our_user.token}")
 
-    hero = Hero(id, hero_name, description, comics_appeared_in, super_power, date_created, user_token, customer_id)
+    hero = Hero(hero_name, description, comics_appeared_in, super_power, date_created, user_token=user_token)
 
     db.session.add(hero)
     db.session.commit()
@@ -67,7 +67,7 @@ def update_hero(our_user, id):
     hero.super_power = request.json['super_power']
     hero.date_created = 0
     hero.user_token = our_user.token
-    hero.customer_id = request.json['customer_id'] #IS THIS THE SAME THING AS USER_TOKEN??
+    # hero.customer_id = request.json['customer_id'] #IS THIS THE SAME THING AS USER_TOKEN??
 
     db.session.commit()
 
