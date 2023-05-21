@@ -13,18 +13,18 @@ def getdata(our_user):
 @api.route('/heroes', methods = ['POST'])
 @token_required
 def create_hero(our_user):
+    user_token = our_user.token
     hero_name = request.json['hero_name']
     description = request.json['description']
     comics_appeared_in = request.json['comics_appeared_in']
     super_power = request.json['super_power']
-    date_created = 0
-    user_token = our_user.token
+
 
 
     print(f"User Token: {our_user.token}")
 
-    hero = Hero(hero_name, description, comics_appeared_in, super_power, date_created, user_token=user_token)
-
+    hero = Hero(user_token, hero_name, description, comics_appeared_in, super_power)
+    
     db.session.add(hero)
     db.session.commit()
 
@@ -60,15 +60,13 @@ def get_hero(our_user, id):
 @token_required
 def update_hero(our_user, id):
     hero = Hero.query.get(id)
-    hero.id = request.json['id']
+    print(hero)
+    hero.user_token = our_user.token
     hero.hero_name = request.json['hero_name']
     hero.description = request.json['description']
     hero.comics_appeared_in = request.json['comics_appeared_in']
     hero.super_power = request.json['super_power']
-    hero.date_created = 0
-    hero.user_token = our_user.token
-    # hero.customer_id = request.json['customer_id'] #IS THIS THE SAME THING AS USER_TOKEN??
-
+    
     db.session.commit()
 
     response = hero_schema.dump(hero)
