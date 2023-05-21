@@ -10,7 +10,7 @@ site = Blueprint('site', __name__, template_folder='site_templates'
 
 @site.route('/')
 def home():
-    print("ooga booga in the terminal")
+    print("now back on the home page")
     return render_template('index.html')
 
 @site.route('/profile', methods = ['GET','POST'])

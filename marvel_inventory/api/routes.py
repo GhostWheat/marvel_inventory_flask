@@ -13,7 +13,6 @@ def getdata(our_user):
 @api.route('/heroes', methods = ['POST'])
 @token_required
 def create_hero(our_user):
-    id = request.json['id']
     hero_name = request.json['hero_name']
     description = request.json['description']
     comics_appeared_in = request.json['comics_appeared_in']
