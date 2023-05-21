@@ -85,7 +85,7 @@ class Hero(db.Model):
     
 class HeroSchema(ma.Schema):
     class Meta:
-        fields = ['id', 'descriptor', 'puzz_data']
+        fields = ['id', 'hero-name', 'description','comics_appeared_in','super_power']
 
 hero_schema = HeroSchema()
 allheroes_schema = HeroSchema(many = True)
